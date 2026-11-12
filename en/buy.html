@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buy — Zewditu</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="index.html"><i>Z</i>ewditu</a>
+  <ul>
+    <li><a class="lnk" href="coffee.html">The Coffee</a></li>
+    <li><a class="lnk" href="story.html">The Story</a></li>
+    <li><a class="lnk" href="business.html">Business</a></li>
+    <li><a class="lnk" href="buy.html" aria-current="page">Buy</a></li>
+    <li class="lang"><a class="lnk" href="../kjop.html">NO</a></li>
+  </ul>
+</nav>
+
+<main class="page" style="padding-bottom:0">
+  <section class="produkt">
+    <div class="pwrap">
+      <div class="pshot">
+        <img src="../zewditu-produkt.png" alt="Zewditu Guji Hambela, 250 g whole beans">
+      </div>
+      <div class="pmeta">
+        <p class="eyebrow">Single Origin — Ethiopia</p>
+        <h2>Zewditu</h2>
+        <p class="eth">ዘውዲቱ</p>
+        <p class="fmt">Guji Hambela, 250 g whole beans</p>
+        <div class="price"><b>159 kr</b><span>incl. 15% VAT</span></div>
+        <button class="buy">Add to cart</button>
+        <div class="spec">
+          <dl><dt>Product designation</dt><dd>Roasted coffee — whole beans</dd></dl>
+          <dl><dt>Origin</dt><dd>Guji, Ethiopia — Grade 1</dd></dl>
+          <dl><dt>Net weight</dt><dd>250 g</dd></dl>
+          <dl><dt>Roast</dt><dd>Omniroast</dd></dl>
+          <dl><dt>Best before</dt><dd>3 months after roast date</dd></dl>
+          <dl><dt>Storage</dt><dd>Dry, cool, dark</dd></dl>
+          <dl><dt>Responsible</dt><dd>Huaca Qumir Norge AS, Dilling</dd></dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pline"><a href="index.html">See the story behind the coffee →</a></div>
+</main>
+
+<footer>
+  <div>Zewditu<br>Hayalu Marketing<br>Org.nr 923 136 932 MVA</div>
+  <div><a href="#">Shipping and returns</a><br><a href="#">Right of withdrawal</a><br><a href="#">Privacy</a></div>
+  <div><a href="mailto:post@zewditu.no">post@zewditu.no</a><br>Oslo, Norway</div>
+</footer>
+
+<script src="../site.js"></script>
+<script>
+document.querySelector('.buy').addEventListener('click',function(){
+  this.textContent='Added to cart';
+  var b=this;setTimeout(function(){b.textContent='Add to cart'},1800);
+});
+</script>
+</body>
+</html>

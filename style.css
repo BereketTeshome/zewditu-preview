@@ -28,6 +28,9 @@ a{color:inherit}
   transition:color .3s,border-color .3s;white-space:nowrap}
 .nav a.lnk:hover,.nav a.lnk:focus-visible{color:var(--ink)}
 .nav a.lnk[aria-current="page"]{color:var(--crown);border-bottom-color:var(--crown)}
+.nav .lang{padding-left:clamp(10px,1.6vw,18px);border-left:1px solid var(--line)}
+.nav .lang a.lnk{color:var(--dim);font-size:11.5px;letter-spacing:.18em}
+.nav .lang a.lnk:hover{color:var(--crown)}
 @media(max-width:620px){.nav a.lnk{font-size:11.5px;letter-spacing:.1em}.nav .brand{font-size:15px}}
 
 /* ---------- editorial page ---------- */
