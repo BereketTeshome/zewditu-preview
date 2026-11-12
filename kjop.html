@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kjøp — Zewditu</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="index.html"><i>Z</i>ewditu</a>
+  <ul>
+    <li><a class="lnk" href="kaffen.html">Kaffen</a></li>
+    <li><a class="lnk" href="historien.html">Historien</a></li>
+    <li><a class="lnk" href="bedrift.html">Bedrift</a></li>
+    <li><a class="lnk" href="kjop.html" aria-current="page">Kjøp</a></li>
+  </ul>
+</nav>
+
+<main class="page" style="padding-bottom:0">
+  <section class="produkt">
+    <div class="pwrap">
+      <div class="pshot">
+        <img src="zewditu-produkt.png" alt="Zewditu Guji Hambela, 250 g hele bønner">
+      </div>
+      <div class="pmeta">
+        <p class="eyebrow">Single Origin — Etiopia</p>
+        <h2>Zewditu</h2>
+        <p class="eth">ዘውዲቱ</p>
+        <p class="fmt">Guji Hambela, 250 g hele bønner</p>
+        <div class="price"><b>159 kr</b><span>inkl. 15 % mva</span></div>
+        <button class="buy">Legg i kurv</button>
+        <div class="spec">
+          <dl><dt>Varebetegnelse</dt><dd>Brent kaffe — hele bønner</dd></dl>
+          <dl><dt>Opprinnelse</dt><dd>Guji, Etiopia — Grade 1</dd></dl>
+          <dl><dt>Nettovekt</dt><dd>250 g</dd></dl>
+          <dl><dt>Brenning</dt><dd>Omniroast</dd></dl>
+          <dl><dt>Best før</dt><dd>3 mnd etter røstedato</dd></dl>
+          <dl><dt>Oppbevaring</dt><dd>Tørt, kjølig, mørkt</dd></dl>
+          <dl><dt>Ansvarlig</dt><dd>Huaca Qumir Norge AS, Dilling</dd></dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pline"><a href="index.html">Se historien bak kaffen →</a></div>
+</main>
+
+<footer>
+  <div>Zewditu<br>Hayalu Marketing<br>Org.nr 923 136 932 MVA</div>
+  <div><a href="#">Frakt og retur</a><br><a href="#">Angrerett</a><br><a href="#">Personvern</a></div>
+  <div><a href="mailto:post@zewditu.no">post@zewditu.no</a><br>Oslo, Norge</div>
+</footer>
+
+<script src="site.js"></script>
+<script>
+document.querySelector('.buy').addEventListener('click',function(){
+  this.textContent='Lagt i kurv';
+  var b=this;setTimeout(function(){b.textContent='Legg i kurv'},1800);
+});
+</script>
+</body>
+</html>
