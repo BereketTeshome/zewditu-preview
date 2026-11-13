@@ -170,3 +170,18 @@ footer a:hover{color:var(--muted)}
   footer{padding:32px 22px}
   footer div{font-size:15px;line-height:1.85}
 }
+
+/* ---------- accessibility ---------- */
+.skiplink{position:absolute;left:-9999px;top:0;z-index:90;background:var(--crown);color:#120F0A;
+  padding:12px 20px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+.skiplink:focus{left:8px;top:8px}
+#main:focus{outline:none}
+
+/* ---------- compact nav on narrow phones ---------- */
+@media(max-width:620px){
+  .nav{flex-wrap:nowrap;gap:8px;padding:12px 16px}
+  .nav .brand{font-size:14px}
+  .nav ul{flex-wrap:nowrap;gap:9px}
+  .nav a.lnk{font-size:10px;letter-spacing:.05em;padding-bottom:2px}
+  .nav .lang{padding-left:8px}
+}
