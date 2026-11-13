@@ -85,6 +85,8 @@ img{max-width:100%;display:block}
 .ch1 .tint{background:#C09442;mix-blend-mode:overlay;opacity:.17}
 .ch2 .ph{filter:brightness(.47) contrast(1.18) saturate(.5) sepia(.3);object-position:50% 62%}
 .ch2 .tint{background:#7E8B6D;mix-blend-mode:color;opacity:.46}
+.ch3 .ph{filter:brightness(.80) contrast(1.03) saturate(.94);object-position:50% 42%}
+.ch3 .tint{background:#1A0F06;mix-blend-mode:multiply;opacity:.18}
 .ch4 .ph{filter:brightness(.5) contrast(1.08) saturate(.9) sepia(.2);object-position:62% 58%}
 .ch4 .tint{background:#8A4E18;mix-blend-mode:color;opacity:.34}
 .vig{position:absolute;inset:0;pointer-events:none;
@@ -235,7 +237,10 @@ footer a:hover{color:var(--muted)}
 <!-- 03 · Grade 1 -->
 <div class="chapter" data-ch="2" style="height:180vh">
   <div class="stage">
-    <div class="plate ch3"><canvas class="fx" data-fx="etiopia"></canvas></div>
+    <div class="plate ch3"><picture>
+      <source media="(max-width:820px)" srcset="../ch03-portrait.jpg">
+      <img class="ph" src="../ch03.jpg" alt="">
+    </picture><div class="tint"></div></div>
     <div class="vig"></div><canvas class="grain"></canvas>
     <div class="facts">
       <div><b>Origin</b><span>Guji, Hambela</span></div>
@@ -371,35 +376,7 @@ function fxEmbers(x,w,h,t){
   }
 }
 
-/* 03 · Etiopia — the flag's colours as a deep, smoky field.
-   Grade 1 is an Ethiopian classification, so the palette is the subject. */
-function fxEtiopia(x,w,h,t){
-  var g=x.createLinearGradient(0,0,0,h);
-  g.addColorStop(0,'#05140A');
-  g.addColorStop(.12,'#0B3C20');
-  g.addColorStop(.30,'#0F5329');   // green holds
-  g.addColorStop(.38,'#3F3310');   // short turn
-  g.addColorStop(.46,'#8A6516');
-  g.addColorStop(.58,'#9C7317');   // gold holds
-  g.addColorStop(.66,'#71290F');   // short turn
-  g.addColorStop(.76,'#8E2014');
-  g.addColorStop(.90,'#5A1410');   // red holds
-  g.addColorStop(1,'#180604');
-  x.fillStyle=g;x.fillRect(0,0,w,h);
-  // slow travelling sheen keeps it alive without reading as animation
-  var cx=w*(.5+.26*Math.sin(t*.00006)),cy=h*(.46+.1*Math.cos(t*.00005));
-  var gl=x.createRadialGradient(cx,cy,0,cx,cy,Math.max(w,h)*.72);
-  gl.addColorStop(0,'rgba(255,226,150,.085)');gl.addColorStop(.55,'rgba(255,210,130,.025)');
-  gl.addColorStop(1,'rgba(0,0,0,0)');
-  x.fillStyle=gl;x.fillRect(0,0,w,h);
-  // settle the whole thing back toward the roast ground
-  var d=x.createLinearGradient(0,0,0,h);
-  d.addColorStop(0,'rgba(18,15,10,.52)');d.addColorStop(.42,'rgba(18,15,10,.30)');
-  d.addColorStop(.72,'rgba(18,15,10,.62)');d.addColorStop(1,'rgba(18,15,10,.88)');
-  x.fillStyle=d;x.fillRect(0,0,w,h);
-}
-
-var FX={motes:fxMotes,mist:fxMist,embers:fxEmbers,etiopia:fxEtiopia};
+var FX={motes:fxMotes,mist:fxMist,embers:fxEmbers};
 function paintPlate(c,t){FX[c.dataset.fx](c.getContext('2d'),c.width,c.height,t||0)}
 function paintPlates(){
   document.querySelectorAll('.fx').forEach(function(c){
