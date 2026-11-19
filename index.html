@@ -256,7 +256,8 @@ footer a:hover{color:var(--muted)}
 <!-- 04 · Brenningen -->
 <div class="chapter" data-ch="3" style="height:200vh">
   <div class="stage">
-    
+    <div class="plate ch4"><img class="ph" src="ch04.jpg" alt=""><canvas class="fx" data-fx="embers"></canvas><div class="tint"></div></div>
+    <div class="vig"></div><canvas class="grain"></canvas>
     <div class="labelwrap">
       <div class="labelbox"><img src="label-detail.jpg" alt="Nærbilde av etiketten på posen"></div>
       <p class="labellbl">Etiketten — Grade 1 (G1)</p>
@@ -457,15 +458,18 @@ function frame(){
     var sp=ch.querySelectorAll('.txt span');
 
     var pi=ease(range(p,0,.55));
-    plate.style.transform='scale('+(1.16-.16*pi)+') translateY('+(-2.4*pi)+'%)';
-    vig.style.opacity=(1-.4*ease(range(p,0,.3))).toFixed(3);
+    if(plate)plate.style.transform='scale('+(1.16-.16*pi)+') translateY('+(-2.4*pi)+'%)';
+    if(vig)vig.style.opacity=(1-.4*ease(range(p,0,.3))).toFixed(3);
 
     var k=ease(range(p,.08,.22));
-    kick.style.opacity=k;rule.style.width=(52*k)+'px';
+    if(kick)kick.style.opacity=k;
+    if(rule)rule.style.width=(52*k)+'px';
 
     var t=ease(range(p,.12,.4));
-    ttl.style.clipPath='inset('+(100-100*t)+'% 0 0 0)';
-    ttl.style.transform='translateY('+(32-32*t)+'px)';
+    if(ttl){
+      ttl.style.clipPath='inset('+(100-100*t)+'% 0 0 0)';
+      ttl.style.transform='translateY('+(32-32*t)+'px)';
+    }
 
     if(dt){var d=ease(range(p,.34,.5));
       dt.style.opacity=d;dt.style.transform='translateY('+(15-15*d)+'px)';}
@@ -480,13 +484,13 @@ function frame(){
       var l1=ease(range(p,.28,.52));
       lb.style.opacity=l1;
       lb.style.transform='scale('+(1.07-.07*l1)+')';
-      ll.style.opacity=ease(range(p,.42,.6));
+      if(ll)ll.style.opacity=ease(range(p,.42,.6));
     }
     var facts=ch.querySelector('.facts');
     if(facts){var f=ease(range(p,.4,.62));
       facts.style.opacity=f;facts.style.transform='translateY(calc(-50% + '+(18-18*f)+'px))';}
     // stage fades out as the next chapter arrives
-    st.style.opacity=(1-ease(range(p,.93,1))*.55).toFixed(3);
+    if(st)st.style.opacity=(1-ease(range(p,.93,1))*.55).toFixed(3);
   });
 
   var doc=document.documentElement;
@@ -502,7 +506,7 @@ function frame(){
 var tick=false;
 addEventListener('scroll',function(){
   if(tick)return;tick=true;
-  requestAnimationFrame(function(){frame();tick=false});
+  requestAnimationFrame(function(){try{frame()}finally{tick=false}});
 },{passive:true});
 
 var lastT=0;
